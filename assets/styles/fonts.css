@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Fugue';
+  src: url('../fonts/fugue.woff2') format('woff2'),
+  url('../fonts/fugue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'William';
+  src: url('../fonts/william.woff2') format('woff2'),
+      url('../fonts/william.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Univers';
+  src: url('../fonts/univers.woff2') format('woff2'),
+      url('../fonts/univers.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: system-ui;
+	font-style: normal;
+	font-weight: normal;
+	src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"), local(".LucidaGrandeUI"), local("Segoe UI"), local("Ubuntu"), local("Roboto-Regular"), local("DroidSans"), local("Tahoma");
+}
+
