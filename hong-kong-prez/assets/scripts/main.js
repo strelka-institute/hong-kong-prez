@@ -1,26 +1,31 @@
 const VIDEO_DATA = [ {
   id: 1,
-  previewUrl: '/assets/images/previews/1.png',
+  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
+  previewUrl: '/hong-kong-prez/assets/images/previews/1.png',
   title: '«Нет мусора — нет проблемы»',
   description: 'Профессор Кинг Минг Чан рассказывает о проблеме Гонконга'
 }, {
   id: 2,
-  previewUrl: '/assets/images/previews/2.png',
+  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
+  previewUrl: '/hong-kong-prez/assets/images/previews/2.png',
   title: 'Пластиковая атака',
   description: 'Активист-экспат борется с пластиком и говорит, что никто ничего не делает, оказывается, что это не так.'
 }, {
   id: 3,
-  previewUrl: '/assets/images/previews/3.png',
+  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
+  previewUrl: '/hong-kong-prez/assets/images/previews/3.png',
   title: 'Борьба за питьевые фонтанчики',
   description: '«Шесть миллионов пластиковых бутылок из-под питьевой воды. Столько ежедневно отправляется на свалку в Гонконге».'
 }, {
   id: 4,
-  previewUrl: '/assets/images/previews/4.png',
+  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
+  previewUrl: '/hong-kong-prez/assets/images/previews/4.png',
   title: 'Отстоять свалку',
   description: 'Мусора все больше места под свалки все меньше, сотрудники свалки чувствуют себя в осажденной крепости, ее вот-вот закроют.'
 }, {
   id: 5,
-  previewUrl: '/assets/images/previews/5.png',
+  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
+  previewUrl: '/hong-kong-prez/assets/images/previews/5.png',
   title: 'Экопарк',
   description: '«Шесть миллионов пластиковых бутылок из-под питьевой воды. Столько ежедневно отправляется на свалку в Гонконге».'
 } ]
@@ -30,7 +35,7 @@ const VIDEO_LIST_TIMEOUT = 20000
 let hadInteraction = false
 let videoListTimeoutHandle = null
 
-function createVideoCard (video) {
+function createVideoCard (video, index) {
   const card = document.createElement('div')
   const preview = document.createElement('div')
   const info = document.createElement('div')
@@ -73,7 +78,9 @@ function createVideoCard (video) {
   card.appendChild(info)
 
   play.addEventListener('click', function () {
-    console.log('Play video #:', video.id)
+    trackInteraction()
+    setPlayerVideo(video, index)
+    setPlayerVisibility(true)
   })
 
   return card
@@ -81,8 +88,8 @@ function createVideoCard (video) {
 
 function fillVideoList (videos) {
   const videoList = document.querySelector('.video-list')
-  videos.forEach(function (video) {
-    videoList.appendChild(createVideoCard(video))
+  videos.forEach(function (video, index) {
+    videoList.appendChild(createVideoCard(video, index))
   })
 }
 
@@ -115,6 +122,42 @@ function setVideoListVisibility (isVisible) {
   } else {
     videoList.classList.remove('video-list-active')
   }
+}
+
+function setPlayerVisibility (isVisible) {
+  var videoPlayer = document.querySelector('.video-player')
+  if (isVisible) {
+    videoPlayer.classList.add('video-player-active')
+  } else {
+    videoPlayer.classList.remove('video-player-active')
+  }
+}
+
+function setPlayerVideo (video, index) {
+  document.querySelector('.video-title').innerText = video.id + '. ' + video.title
+  document.querySelector('.video').src = video.url
+
+  const prevButton = document.createElement('button')
+  prevButton.classList.add('video-button', 'video-prev')
+  prevButton.disabled = index === 0
+  if (index !== 0) {
+    prevButton.addEventListener('click', function () {
+      setPlayerVideo(index - 1)
+    })
+  }
+
+  const nextButton = document.createElement('button')
+  nextButton.classList.add('video-button', 'video-next')
+  nextButton.disabled = index === VIDEO_DATA.length - 1
+  if (index < VIDEO_DATA.length -1) {
+    nextButton.addEventListener('click', function () {
+      setPlayerVideo(index + 1)
+    })
+  }
+
+  const videoPlayer = document.querySelector('.video-player')
+  videoPlayer.appendChild(prevButton)
+  videoPlayer.appendChild(nextButton)
 }
 
 function handleLaunchClick () {
