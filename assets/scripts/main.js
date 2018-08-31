@@ -1,31 +1,31 @@
 const VIDEO_DATA = [ {
   id: 1,
-  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
-  previewUrl: '/hong-kong-prez/assets/images/previews/1.png',
+  url: '/assets/videos/video-bg.mp4',
+  previewUrl: '/assets/images/previews/1.png',
   title: '«Нет мусора — нет проблемы»',
   description: 'Профессор Кинг Минг Чан рассказывает о проблеме Гонконга'
 }, {
   id: 2,
-  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
-  previewUrl: '/hong-kong-prez/assets/images/previews/2.png',
+  url: '/assets/videos/video-bg.mp4',
+  previewUrl: '/assets/images/previews/2.png',
   title: 'Пластиковая атака',
   description: 'Активист-экспат борется с пластиком и говорит, что никто ничего не делает, оказывается, что это не так.'
 }, {
   id: 3,
-  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
-  previewUrl: '/hong-kong-prez/assets/images/previews/3.png',
+  url: '/assets/videos/video-bg.mp4',
+  previewUrl: '/assets/images/previews/3.png',
   title: 'Борьба за питьевые фонтанчики',
   description: '«Шесть миллионов пластиковых бутылок из-под питьевой воды. Столько ежедневно отправляется на свалку в Гонконге».'
 }, {
   id: 4,
-  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
-  previewUrl: '/hong-kong-prez/assets/images/previews/4.png',
+  url: '/assets/videos/video-bg.mp4',
+  previewUrl: '/assets/images/previews/4.png',
   title: 'Отстоять свалку',
   description: 'Мусора все больше места под свалки все меньше, сотрудники свалки чувствуют себя в осажденной крепости, ее вот-вот закроют.'
 }, {
   id: 5,
-  url: '/hong-kong-prez/assets/videos/video-bg.mp4',
-  previewUrl: '/hong-kong-prez/assets/images/previews/5.png',
+  url: '/assets/videos/video-bg.mp4',
+  previewUrl: '/assets/images/previews/5.png',
   title: 'Экопарк',
   description: '«Шесть миллионов пластиковых бутылок из-под питьевой воды. Столько ежедневно отправляется на свалку в Гонконге».'
 } ]
